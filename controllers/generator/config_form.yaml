@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Generator
+
+# Model Form Field configuration
+form: $/depcore/pdftoolkit/models/generator/fields.yaml
+
+# Model Class name
+modelClass: Depcore\PDFToolkit\Models\Generator
+
+# Default redirect location
+defaultRedirect: depcore/pdftoolkit/generator
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: depcore/pdftoolkit/generator/update/:id
+    redirectClose: depcore/pdftoolkit/generator
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: depcore/pdftoolkit/generator
+    redirectClose: depcore/pdftoolkit/generator
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

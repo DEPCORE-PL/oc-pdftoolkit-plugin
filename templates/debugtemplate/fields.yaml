@@ -1,0 +1,10 @@
+fields:
+    color:
+        type: colorpicker
+        label: Text Color
+    background:
+        type: colorpicker
+        label: Background
+    name:
+        type: text
+        label: Name
