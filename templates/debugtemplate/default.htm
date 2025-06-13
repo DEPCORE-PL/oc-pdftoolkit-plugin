@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{style}}">
     <meta charset="UTF-8">
     <title>A4 Document</title>
     <style>
@@ -35,6 +36,10 @@
     colors used: {{color}} {{background}}
     <p>Debug output, test purposes only</p>
     <p>{{info}}</p>
+    <img src="{{image}}" alt="">
+    {% for item in repeater %}
+        <p>{{ item.details }}</p>
+    {% endfor %}
 </div>
 </body>
 </html>

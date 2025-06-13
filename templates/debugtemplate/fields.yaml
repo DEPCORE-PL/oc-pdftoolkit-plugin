@@ -1,10 +1,26 @@
 fields:
     color:
+        required: true
         type: colorpicker
         label: Text Color
     background:
+        required: true
         type: colorpicker
         label: Background
     name:
+        required: true
         type: text
         label: Name
+    image:
+        required: true
+        type: mediafinder
+        label: image
+    repeater:
+        required: true
+        type: repeater
+        label: Repeating
+        form:
+            fields:
+                details:
+                    label: Details
+                    type: textarea

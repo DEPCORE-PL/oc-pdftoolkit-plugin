@@ -1,27 +1,24 @@
 <?php
-
 namespace Depcore\PdfToolkit\Templates;
 
-use Config;
 use Depcore\PdfToolkit\Classes\ToolkitTemplate;
+use Dflydev\DotAccessData\Data;
 use Initbiz\Pdfgenerator\Classes\PdfLayout;
-use Media\Classes\MediaLibrary;
-use Storage;
 
-class DebugTemplate extends PdfLayout
-{
+class CoffeeCorner extends PdfLayout {
     use ToolkitTemplate;
 
     public static function getName(): string
     {
-        return "Example Template";
+        return "Coffee Corner Poster";
     }
 
     public function prepareData($data): void
     {
         if (count($data) == 0) return;
         parent::prepareData($data);
-//        $this->data["style"] = $this->assetsPath.'/css/style.css';
-        $this->data["image"] = $this->image($data["image"]);
+        $this->data["image_logo"] = $this->assetsPath."/img/export.png";
+        $this->data["image_dog"] = $this->assetsPath."/img/dog.png";
+        $this->data["image_brands"] = $this->image($this->data["image_brands"]);
     }
 }

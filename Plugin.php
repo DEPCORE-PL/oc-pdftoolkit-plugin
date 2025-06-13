@@ -2,6 +2,7 @@
 
 use Backend;
 use Depcore\PdfToolkit\Classes\TemplateManager;
+use Depcore\PdfToolkit\Templates\CoffeeCorner;
 use Depcore\PdfToolkit\Templates\DebugTemplate;
 use System\Classes\PluginBase;
 
@@ -42,6 +43,7 @@ class Plugin extends PluginBase
     public function boot()
     {
         TemplateManager::addTemplate(DebugTemplate::class);
+        TemplateManager::addTemplate(CoffeeCorner::class);
 
     }
 

@@ -51,6 +51,7 @@ class GeneratorController extends ControllerBehavior {
     }
 
     protected function generate($download = false){
+
         $params = $this->formWidget->getSaveData();
         $this->template->prepareData($params);
         $pdfGenerator = new PdfGenerator($this->template::getName(), $this->template);
