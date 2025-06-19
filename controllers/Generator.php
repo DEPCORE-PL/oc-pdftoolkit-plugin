@@ -5,14 +5,13 @@ use Backend\Classes\Controller;
 use Depcore\Pdftoolkit\Classes\GeneratorController;
 
 /**
- * Generator Backend Controller
+ *  Main controller for the PDF Toolkit Generator.
  *
  * @link https://docs.octobercms.com/3.x/extend/system/controllers.html
  */
 class Generator extends Controller
 {
     public $implement = [
-//        \Backend\Behaviors\FormController::class,
         GeneratorController::class,
         \Backend\Behaviors\ListController::class,
     ];

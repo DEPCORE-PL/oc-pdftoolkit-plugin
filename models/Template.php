@@ -1,16 +1,16 @@
 <?php namespace Depcore\PDFToolkit\Models;
 
+use Initbiz\Pdfgenerator\Classes\PdfLayout
 use Model;
 
 /**
- * Template Model
+ *  Template Model
  *
  * @link https://docs.octobercms.com/3.x/extend/system/models.html
  */
 class Template extends Model
 {
-    use \October\Rain\Database\Traits\Validation;
-
+    // disaple timestamps, we don't need them
     public $timestamps = false;
 
     protected $fillable = ["name", "class"];
@@ -20,12 +20,16 @@ class Template extends Model
      */
     public $table = 'depcore_pdftoolkit_templates';
 
-    function getModel(){
+    /**
+     * Returns an instance of the generable template class.
+     *
+     * This method instantiates and returns a new object of the class specified by the `$class` property.
+     * The returned object must implement the `ToolkitTemplate` interface and use the `ToolkitTemplate` trait.
+     *
+     * @return ToolkitTemplate An instance of the generable template class.
+     */
+    function getModel(): ToolkitTemplate {
         return new ($this->class)();
     }
 
-    /**
-     * @var array rules for validation
-     */
-    public $rules = [];
 }

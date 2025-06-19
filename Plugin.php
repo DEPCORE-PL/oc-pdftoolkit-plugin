@@ -13,6 +13,11 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
+    /**
+     * Specifies the plugin dependencies required for this plugin to function properly.
+     *
+     * @var array $require List of plugin codes that must be installed and enabled.
+     */
     public $require = [
         'Initbiz.Pdfgenerator'
     ];
@@ -31,47 +36,13 @@ class Plugin extends PluginBase
     }
 
     /**
-     * register method, called when the plugin is first registered.
-     */
-    public function register()
-    {
-    }
-
-    /**
      * boot method, called right before the request route.
      */
     public function boot()
     {
+        // add template to the TemplateManager
         TemplateManager::addTemplate(DebugTemplate::class);
-        TemplateManager::addTemplate(CoffeeCorner::class);
 
-    }
-
-    /**
-     * registerComponents used by the frontend.
-     */
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'Depcore\PDFToolkit\Components\MyComponent' => 'myComponent',
-        ];
-    }
-
-    /**
-     * registerPermissions used by the backend.
-     */
-    public function registerPermissions()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'depcore.pdftoolkit.some_permission' => [
-                'tab' => 'PDFToolkit',
-                'label' => 'Some permission'
-            ],
-        ];
     }
 
     /**

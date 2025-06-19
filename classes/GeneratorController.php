@@ -10,7 +10,6 @@ use Initbiz\Pdfgenerator\Models\Settings;
 use Lang;
 use Depcore\PDFToolkit\Models\Template;
 use Redirect;
-use Response;
 
 class GeneratorController extends ControllerBehavior {
     /**
@@ -29,16 +28,17 @@ class GeneratorController extends ControllerBehavior {
         $this->controller->vars['formRecordName'] = "";
     }
 
+
     /**
-     * preview controller action used for viewing existing model records.
-     * This action takes a record identifier (primary key of the model)
-     * to locate the record used for sourcing the existing preview data.
+     * Displays the main UI for the PDF generator.
      *
-     * @param int $recordId Record identifier
-     * @param string $context Form context
-     * @return void
+     * This method is named "create" because it initiates the creation of a new PDF from a template.
+     *
+     * @param int $recordId The ID of the record to use for PDF generation.
+     * @param mixed    $context    Optional. Additional context for the PDF generation process.
+     * @return \October\Rain\Halcyon\Model|void
      */
-    public function create($recordId = null, $context = null)
+    public function create($recordId, $context = null)
     {
         /* @var \Depcore\PdfToolkit\Classes\ToolkitTemplate $template */
         $this->template = new (Template::find($recordId)->class);
@@ -50,6 +50,12 @@ class GeneratorController extends ControllerBehavior {
         $this->formWidget->bindToController();
     }
 
+    /**
+     * Generates the PDF based on the provided data and template.
+     *
+     * @param bool $download Whether to download the generated PDF or just preview it.
+     * @return string|void The URL to the generated PDF or a file download response.
+     */
     protected function generate($download = false){
 
         $params = $this->formWidget->getSaveData();
@@ -67,6 +73,17 @@ class GeneratorController extends ControllerBehavior {
     }
 
 
+    /**
+     * Generates a web response for previewing a PDF file in web browsers.
+     *
+     * This method takes a PDF filename and an access token, then returns an HTTP response
+     * that allows the PDF to be previewed securely in the browser.
+     *
+     * @param string $filename The name of the PDF file to be previewed.
+     * @param string $token The unique token used to distinguish files with the same name.
+     *
+     * @return \Illuminate\Http\Response The HTTP response containing the PDF preview.
+     */
     public function preview($filename, $token){
         $directory = Settings::get('pdf_dir', temp_path());
         $directory = ($directory === "") ? temp_path() : $directory;
@@ -90,16 +107,41 @@ class GeneratorController extends ControllerBehavior {
     }
 
 
+    /**
+     * Handles the generation process when the "Generate" action is triggered.
+     *
+     * @param mixed $context Optional context information for the generation process.
+     * @return void
+     */
     public function create_onGenerate($context = null){
         return $this->generate(true);
     }
 
+    /**
+     * Handles the preview action for creating a PDF.
+     *
+     * Generates an iframe HTML element that displays a preview of the generated PDF.
+     * The iframe is styled to be visible only on extra-large screens and hides the toolbar and navigation panes.
+     *
+     * @param mixed $context Optional context for the preview action.
+     * @return array Returns an array containing the HTML content for the PDF preview.
+     */
     public function create_onPreview($context = null){
         return [
             "newContent" => '<iframe id="pdf-preview" class="d-xl-block d-none w-75" src="'.$this->generate().'#toolbar=0&navpanes=0"></iframe>'
         ];
     }
 
+    /**
+     * Renders the form widget.
+     *
+     * Checks if the form widget is initialized; if not, throws an ApplicationException.
+     * Otherwise, renders and returns the form widget with the provided options.
+     *
+     * @param array $options Optional array of options to customize the form rendering.
+     * @return string The rendered form widget HTML.
+     * @throws \ApplicationException If the form widget is not ready.
+     */
     public function formRender($options = [])
     {
         if (!$this->formWidget) {
