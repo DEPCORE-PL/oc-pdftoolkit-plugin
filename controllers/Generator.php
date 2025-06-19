@@ -2,7 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Depcore\Pdftoolkit\Classes\GeneratorController;
+use Depcore\PDFToolkit\Classes\GeneratorController;
 
 /**
  *  Main controller for the PDF Toolkit Generator.

@@ -1,12 +1,9 @@
 <?php
 
-namespace Depcore\PdfToolkit\Templates;
+namespace Depcore\PDFToolkit\Templates;
 
-use Config;
-use Depcore\PdfToolkit\Classes\ToolkitTemplate;
+use Depcore\PDFToolkit\Classes\ToolkitTemplate;
 use Initbiz\Pdfgenerator\Classes\PdfLayout;
-use Media\Classes\MediaLibrary;
-use Storage;
 
 /**
  * Class DebugTemplate

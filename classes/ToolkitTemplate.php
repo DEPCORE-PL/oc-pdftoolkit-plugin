@@ -1,5 +1,5 @@
 <?php
-namespace Depcore\PdfToolkit\Classes;
+namespace Depcore\PDFToolkit\Classes;
 
 use Storage;
 use System\Traits\ConfigMaker;

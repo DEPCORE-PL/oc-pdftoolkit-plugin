@@ -1,5 +1,5 @@
 <?php
-namespace Depcore\Pdftoolkit\Classes;
+namespace Depcore\PDFToolkit\Classes;
 
 
 use ApplicationException;

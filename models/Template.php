@@ -1,6 +1,6 @@
 <?php namespace Depcore\PDFToolkit\Models;
 
-use Initbiz\Pdfgenerator\Classes\PdfLayout
+use Initbiz\Pdfgenerator\Classes\PdfLayout;
 use Model;
 
 /**
@@ -28,7 +28,7 @@ class Template extends Model
      *
      * @return ToolkitTemplate An instance of the generable template class.
      */
-    function getModel(): ToolkitTemplate {
+    function getModel(): PdfLayout {
         return new ($this->class)();
     }
 

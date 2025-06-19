@@ -1,5 +1,5 @@
 <?php
-namespace Depcore\PdfToolkit\Classes;
+namespace Depcore\PDFToolkit\Classes;
 
 use Depcore\PDFToolkit\Models\Template;
 /**

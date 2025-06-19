@@ -1,9 +1,8 @@
 <?php namespace Depcore\PDFToolkit;
 
 use Backend;
-use Depcore\PdfToolkit\Classes\TemplateManager;
-use Depcore\PdfToolkit\Templates\CoffeeCorner;
-use Depcore\PdfToolkit\Templates\DebugTemplate;
+use Depcore\PDFToolkit\Classes\TemplateManager;
+use Depcore\PDFToolkit\Templates\DebugTemplate;
 use System\Classes\PluginBase;
 
 /**
