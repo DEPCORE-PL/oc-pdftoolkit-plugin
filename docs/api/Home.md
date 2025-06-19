@@ -22,6 +22,25 @@ This is an automatically generated documentation for **Documentation**.
 
 
 
+### \Depcore\PDFToolkit\Classes
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`GeneratorController`](./classes/Depcore/PDFToolkit/Classes/GeneratorController.md) | |
+| [`TemplateManager`](./classes/Depcore/PDFToolkit/Classes/TemplateManager.md) | Class TemplateManager|
+
+
+#### Traits
+
+| Trait | Description |
+|-------|-------------|
+| [`ToolkitTemplate`](./classes/Depcore/PDFToolkit/Classes/ToolkitTemplate.md) | Trait ToolkitTemplate|
+
+
+
+
 ### \Depcore\PDFToolkit\Controllers
 
 #### Classes
@@ -33,42 +52,24 @@ This is an automatically generated documentation for **Documentation**.
 
 
 
-### \Depcore\PdfToolkit\Classes
+### \Depcore\PDFToolkit\Models
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`TemplateManager`](./classes/Depcore/PdfToolkit/Classes/TemplateManager.md) | Class TemplateManager|
-
-
-#### Traits
-
-| Trait | Description |
-|-------|-------------|
-| [`ToolkitTemplate`](./classes/Depcore/PdfToolkit/Classes/ToolkitTemplate.md) | Trait ToolkitTemplate|
+| [`Template`](./classes/Depcore/PDFToolkit/Models/Template.md) | Template Model|
 
 
 
 
-### \Depcore\PdfToolkit\Templates
+### \Depcore\PDFToolkit\Templates
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`DebugTemplate`](./classes/Depcore/PdfToolkit/Templates/DebugTemplate.md) | Class DebugTemplate|
-
-
-
-
-### \Depcore\Pdftoolkit\Classes
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`GeneratorController`](./classes/Depcore/Pdftoolkit/Classes/GeneratorController.md) | |
+| [`DebugTemplate`](./classes/Depcore/PDFToolkit/Templates/DebugTemplate.md) | Class DebugTemplate|
 
 
 
