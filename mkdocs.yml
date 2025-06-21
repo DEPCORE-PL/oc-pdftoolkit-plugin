@@ -1,7 +1,7 @@
-site_name: Turnstile OctoberCMS Plugin
-site_description: Documentation for the Turnstile CAPTCHA plugin for OctoberCMS
+site_name: PDF Toolkit Plugin
+site_description: Documentation for the PDF from template generator plugin for OctoberCMS
 site_author: Depcore
-repo_url: https://github.com/DEPCORE-PL/turnstile-plugin
+repo_url: https://github.com/DEPCORE-PL/oc-pdftoolkit-plugin
 docs_dir: docs
 
 plugins:
