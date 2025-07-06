@@ -126,5 +126,5 @@ The list of fields for the template.
 ***
 
 ***
-> Automatically generated on 2025-06-21
+> Automatically generated on 2025-07-06
 
