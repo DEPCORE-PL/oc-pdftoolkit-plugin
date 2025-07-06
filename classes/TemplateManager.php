@@ -19,9 +19,12 @@ class TemplateManager {
      *                       should be specified in the implementation details.
      * @return void
      */
-    public static function addTemplate($template) {
-        Template::updateOrCreate(["class" => $template], ["class"=>$template, "name"=>$template::getName()
-        ]);
+    public static function addTemplate($template)
+    {
+        if (\Schema::hasTable('depcore_pdftoolkit_templates')) {
+                Template::updateOrCreate(["class" => $template], ["class" => $template, "name" => $template::getName()
+            ]);
+        }
     }
 
     /**
