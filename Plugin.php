@@ -56,6 +56,20 @@ class Plugin extends PluginBase
                 'icon' => 'icon-leaf',
                 'permissions' => ['depcore.pdftoolkit.*'],
                 'order' => 500,
+                'sideMenu' => [
+                    'posts' => [
+                        'label' => 'Templates',
+                        'icon' => 'icon-leaf',
+                        'url' => Backend::url('depcore/pdftoolkit/generator'),
+                        'permissions' => ['acme.blog.access_posts'],
+                    ],
+                    'categories' => [
+                        'label' => 'Jobs',
+                        'icon' => 'icon-leaf',
+                        'url' => Backend::url('depcore/pdftoolkit/generationjob'),
+                        'permissions' => ['acme.blog.access_categories'],
+                    ]
+                ]
             ],
         ];
     }

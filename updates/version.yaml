@@ -1,3 +1,6 @@
 v1.0.1:
     - First version of PDFToolkit
     - create_templates_table.php
+v1.1.0:
+    - queue mode
+    - create_generation_jobs_table.php

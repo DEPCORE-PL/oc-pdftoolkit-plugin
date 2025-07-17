@@ -5,10 +5,13 @@ namespace Depcore\PDFToolkit\Classes;
 use ApplicationException;
 use Backend;
 use Backend\Classes\ControllerBehavior;
+use Depcore\PDFToolkit\Jobs\Generation;
+use Depcore\PDFToolkit\Models\GenerationJob;
 use Initbiz\Pdfgenerator\Classes\PdfGenerator;
 use Initbiz\Pdfgenerator\Models\Settings;
 use Lang;
 use Depcore\PDFToolkit\Models\Template;
+use League\Csv\Exception;
 use Redirect;
 
 class GeneratorController extends ControllerBehavior {
@@ -19,6 +22,8 @@ class GeneratorController extends ControllerBehavior {
 
     /* @var \Depcore\PdfToolkit\Classes\ToolkitTemplate $template */
     protected  $template;
+
+    protected int $templateId;
 
     /**
      * Prepares commonly used view data.
@@ -42,6 +47,7 @@ class GeneratorController extends ControllerBehavior {
     {
         /* @var \Depcore\PdfToolkit\Classes\ToolkitTemplate $template */
         $this->template = new (Template::find($recordId)->class);
+        $this->templateId = $recordId;
 
         $this->prepareVars();
         $config = $this->template->getFields();
@@ -59,17 +65,13 @@ class GeneratorController extends ControllerBehavior {
     protected function generate($download = false){
 
         $params = $this->formWidget->getSaveData();
-        $this->template->prepareData($params);
-        $pdfGenerator = new PdfGenerator($this->template::getName(), $this->template);
-        $pdfGenerator->tokenize = true;
-        $pdfGenerator->generatePdf();
 
-        if ($download) {
-            return $pdfGenerator->downloadPdf();
-        }
+        $job = new GenerationJob();
+        $job->template = Template::find($this->templateId);
+        $job->payload = serialize($params);
+        $job->save();
 
-
-        return Backend::url("/depcore/pdftoolkit/generator/preview/".$pdfGenerator->filename."/".$pdfGenerator->token);
+        Generation::dispatch($params, $this->templateId, $job->id);
     }
 
 
@@ -103,7 +105,7 @@ class GeneratorController extends ControllerBehavior {
 
         return response()->file($localFileName, [
             'Content-Type' => 'application/pdf',
-        ])->deleteFileAfterSend($rmAfterDownload);
+        ])->deleteFileAfterSend(false);
     }
 
 

@@ -1,0 +1,32 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    template:
+        label: Template
+        type: text
+        select: name  # The column to display (you can change this based on your requirement)
+        relation: template
+
+    downloadLink:
+        label: Download Link
+        type: partial
+        # adjust this to your own plugin/theme namespace & partial path
+        path: $/depcore/pdftoolkit/partials/columns/download_link.php
+        sortable: false
+        searchable: false
+
+    status:
+        label: Status
+        type: text
+        select: >
+            CASE
+              WHEN downloadLink IS NOT NULL THEN 'ready'
+              ELSE 'processing'
+            END                         # outputs “ready” when download_link is not null :contentReference[oaicite:1]{index=1}
+        sortable: false
+        searchable: false
