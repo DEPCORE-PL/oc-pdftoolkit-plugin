@@ -1,9 +1,9 @@
 
-Main controller for the PDF Toolkit Generator.
+Generation Job Backend Controller
 
 ***
 
-* Full name: `\Depcore\PDFToolkit\Controllers\Generator`
+* Full name: `\Depcore\PDFToolkit\Controllers\GenerationJob`
 * Parent class: [`Controller`](../../../Backend/Classes/Controller)
 
 **See Also:**
@@ -16,14 +16,6 @@ Main controller for the PDF Toolkit Generator.
 
 ```php
 public $implement
-```
-
-***
-
-### formConfig
-
-```php
-public string $formConfig
 ```
 
 ***

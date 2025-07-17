@@ -1,22 +1,16 @@
-***
-
-# Plugin
 
 Plugin Information File
 
-
+***
 
 * Full name: `\Depcore\PDFToolkit\Plugin`
-* Parent class: [`PluginBase`](../../System/Classes/PluginBase.md)
+* Parent class: [`PluginBase`](../../System/Classes/PluginBase)
 
 **See Also:**
 
-* https://docs.octobercms.com/3.x/extend/system/plugins.html - 
-
-
+* https://docs.octobercms.com/3.x/extend/system/plugins.html
 
 ## Properties
-
 
 ### require
 
@@ -26,15 +20,9 @@ Specifies the plugin dependencies required for this plugin to function properly.
 public array $require
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### pluginDetails
 
@@ -43,17 +31,6 @@ pluginDetails about this plugin.
 ```php
 public pluginDetails(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -65,17 +42,6 @@ boot method, called right before the request route.
 public boot(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### registerNavigation
@@ -86,19 +52,4 @@ registerNavigation used by the backend.
 public registerNavigation(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-
 ***
-
-
-***
-> Automatically generated on 2025-06-21
