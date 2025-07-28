@@ -27,6 +27,6 @@ columns:
             CASE
               WHEN downloadLink IS NOT NULL THEN 'ready'
               ELSE 'processing'
-            END                         # outputs “ready” when download_link is not null :contentReference[oaicite:1]{index=1}
+            END                      
         sortable: false
         searchable: false
