@@ -42,6 +42,7 @@ class Generation implements ShouldQueue
         $template = Template::find($this->template)->getModel();
         $template->prepareData($this->payload);
         $pdfGenerator = new PdfGenerator($template::getName(), $template);
+        $pdfGenerator->snappyPdf->setTemporaryFolder(temp_path());
         $pdfGenerator->tokenize = true;
         $pdfGenerator->generatePdf();
 
