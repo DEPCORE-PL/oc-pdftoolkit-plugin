@@ -76,6 +76,20 @@ The resolved path for PDF template usage.
 
 ***
 
+### attachTitleField
+
+```php
+private attachTitleField(mixed $config): mixed
+```
+
+**Parameters:**
+
+| Parameter | Type      | Description |
+|-----------|-----------|-------------|
+| `$config` | **mixed** |             |
+
+***
+
 ### getFields
 
 Retrieves the fields associated with the template.
