@@ -103,9 +103,18 @@ class GeneratorController extends ControllerBehavior {
             return Redirect::to('/404');
         }
 
-        return response()->file($localFileName, [
+        $headers = [
             'Content-Type' => 'application/pdf',
-        ])->deleteFileAfterSend(false);
+        ];
+
+        $filename = \Request::get('filename');
+        if (!empty($filename)) {
+            $headers['Content-Disposition'] = 'inline; filename="' . $filename . '.pdf"';
+        }
+
+        return response()
+            ->file($localFileName, $headers)
+            ->deleteFileAfterSend(false);
     }
 
 

@@ -31,6 +31,13 @@ trait ToolkitTemplate {
         return Storage::path('/media'.$path);
     }
 
+
+    private function attachTitleField($config) {
+        $titleField = ["__title" => ["required" => true, "label" => "Title", "type" => "text"]];
+        $config->fields = $titleField + $config->fields; // "__title" goes first
+        return $config;
+    }
+
     /**
      * Retrieves the fields associated with the template.
      *
@@ -41,6 +48,6 @@ trait ToolkitTemplate {
     public function getFields() {
         $this->classPath = $this->guessConfigPathFrom($this);
         $fieldsPath = $this->classPath."/".$this->fields;
-        return $this->makeConfig($fieldsPath);
+        return $this->attachTitleField($this->makeConfig($fieldsPath));
     }
 }

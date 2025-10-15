@@ -42,12 +42,13 @@ class Generation implements ShouldQueue
         $template = Template::find($this->template)->getModel();
         $template->prepareData($this->payload);
         $pdfGenerator = new PdfGenerator($template::getName(), $template);
-        $pdfGenerator->snappyPdf->setTemporaryFolder(temp_path());
+        if($pdfGenerator->snappyPdf != null) $pdfGenerator->snappyPdf->setTemporaryFolder(temp_path());
         $pdfGenerator->tokenize = true;
         $pdfGenerator->generatePdf();
 
         $job = GenerationJob::find($this->generateJob);
-        $job->downloadLink = "/depcore/pdftoolkit/generator/preview/".$pdfGenerator->filename."/".$pdfGenerator->token;
+        $job->title = $this->payload["__title"];
+        $job->downloadLink = "/depcore/pdftoolkit/generator/preview/".$pdfGenerator->filename."/".$pdfGenerator->token.($job->title ? "?filename=".urlencode($job->title) : "");
         $job->save();
     }
 }

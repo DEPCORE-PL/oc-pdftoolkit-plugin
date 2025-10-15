@@ -24,7 +24,7 @@ class GenerationJob extends Model
         "template" =>  "required"
     ];
 
-    protected $fillable = ["downloadLink", "payload"];
+    protected $fillable = ["downloadLink", "payload", "title"];
 
     public $belongsTo = [
         "template" => Template::class

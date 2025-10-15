@@ -12,6 +12,10 @@ columns:
         select: name  # The column to display (you can change this based on your requirement)
         relation: template
 
+    title:
+        label: Title
+        type: text
+
     downloadLink:
         label: Download Link
         type: partial
@@ -27,6 +31,6 @@ columns:
             CASE
               WHEN downloadLink IS NOT NULL THEN 'ready'
               ELSE 'processing'
-            END                      
+            END
         sortable: false
         searchable: false
