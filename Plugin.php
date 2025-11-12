@@ -30,7 +30,7 @@ class Plugin extends PluginBase
             'name' => 'PDFToolkit',
             'description' => 'Toolset for creating pdfs',
             'author' => 'Depcore',
-            'icon' => 'icon-document'
+            'icon' => 'ph ph-file-pdf'
         ];
     }
 
@@ -53,7 +53,7 @@ class Plugin extends PluginBase
             'pdftoolkit' => [
                 'label' => 'PDFToolkit',
                 'url' => Backend::url('depcore/pdftoolkit/generator'),
-                'icon' => 'icon-leaf',
+                'icon' => 'ph ph-file-pdf',
                 'permissions' => ['depcore.pdftoolkit.*'],
                 'order' => 500,
             ],
